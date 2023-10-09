@@ -4,7 +4,7 @@
 # Требования
 C++17 и выше
 
-[Java SE Runtime Environment 8.](https://www.oracle.com/java/technologies/downloads/#java8)
+[Java SE Runtime Environment 8](https://www.oracle.com/java/technologies/downloads/#java8)
 
 [ANTLR](https://www.antlr.org/)
 
@@ -22,15 +22,13 @@ sheet->SetCell("A5"_pos, "=A1+A2+A3+A4");
 auto* cell_A5_ptr = sheet->GetCell("A5"_pos);
 ASSERT_EQUAL(std::get<double>(cell_A5_ptr->GetValue()), 18);
 ````
-*При обнаружении циклической ссылки будет выброшено исключение*
-
-![Снимок экрана 2023-10-02 233235](https://github.com/Evgenicast/cpp-transport-catalogue/assets/107400788/ffef4bd5-b9fe-40cc-aa23-3b56d8f2b930)
 
 *Реализованные исключения:*
 
 - **#DIV0!** - деление на ноль
 - **#VALUE!** - если операнд содержит текст, а не числовое значение.
 - **#REF!** - если обращение идет к ячейке (ссылка) за пределами Листа (sheet)
+- При обнаружении циклической ссылки будет выброшено исключение
 
 # Инструкция по сборке проекта
 1. Установить [Java SE Runtime Environment 8.](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
