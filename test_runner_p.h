@@ -9,14 +9,14 @@
 #include <vector>
 
 namespace TestRunnerPrivate {
-    
+
     template <typename K, typename V, template <typename, typename> class Map>
-        std::ostream& PrintMap(std::ostream& os, const Map<K, V>& m) {
+    std::ostream& PrintMap(std::ostream& os, const Map<K, V>& m) {
         os << "{";
         bool first = true;
         for (const auto& kv : m) {
             if (!first) {
-               os << ", ";
+                os << ", ";
             }
             first = false;
             os << kv.first << ": " << kv.second;
@@ -83,14 +83,16 @@ inline void Assert(bool b, const std::string& hint) {
 class TestRunner {
 public:
     template <class TestFunc>
-        void RunTest(TestFunc func, const std::string& test_name) {
+    void RunTest(TestFunc func, const std::string& test_name) {
         try {
             func();
             std::cerr << test_name << " OK" << std::endl;
-        } catch (std::exception& e) {
+        }
+        catch (std::exception& e) {
             ++fail_count;
             std::cerr << test_name << " fail: " << e.what() << std::endl;
-        } catch (...) {
+        }
+        catch (...) {
             ++fail_count;
             std::cerr << "Unknown exception caught" << std::endl;
         }

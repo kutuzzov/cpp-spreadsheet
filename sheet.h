@@ -6,14 +6,14 @@
 #include <functional>
 #include <unordered_map>
 
-class CHasher {
+class CellHasher {
 public:
     size_t operator()(const Position p) const {
         return std::hash<std::string>()(p.ToString());
     }
 };
 
-class CComparator {
+class CellComparator {
 public:
     bool operator()(const Position& lhs, const Position& rhs) const {
         return lhs == rhs;
@@ -22,7 +22,7 @@ public:
 
 class Sheet : public SheetInterface {
 public:
-    using Table = std::unordered_map<Position, std::unique_ptr<Cell>, CHasher, CComparator>;
+    using Table = std::unordered_map<Position, std::unique_ptr<Cell>, CellHasher, CellComparator>;
 
     ~Sheet();
 
@@ -42,5 +42,5 @@ public:
     Cell* GetCellPtr(Position pos);
 
 private:
-    Table cells_;
+	Table cells_;
 };
