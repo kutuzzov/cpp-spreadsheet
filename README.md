@@ -3,7 +3,9 @@
 
 # Требования
 C++17 и выше
+
 [Java SE Runtime Environment 8.](https://www.oracle.com/java/technologies/downloads/#java8)
+
 [ANTLR](https://www.antlr.org/)
 
 # Описание
